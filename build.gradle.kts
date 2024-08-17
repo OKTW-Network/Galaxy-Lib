@@ -1,10 +1,11 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `maven-publish`
-    kotlin("jvm") version "1.9.22"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "2.0.10"
+    id("com.gradleup.shadow") version "8.3.0"
 }
 
 group = "one.oktw"
@@ -18,18 +19,18 @@ repositories {
 dependencies {
     api(kotlin("stdlib-jdk8"))
     api(kotlin("reflect"))
-    api(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.3"))
+    api(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.8.1"))
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    api("org.mongodb:bson:4.11.1")
+    api("org.mongodb:bson:5.1.3")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions.jvmTarget = JvmTarget.JVM_21
 }
 
 val shadowJar by tasks.getting(ShadowJar::class) {
