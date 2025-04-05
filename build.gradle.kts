@@ -4,8 +4,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `maven-publish`
-    kotlin("jvm") version "2.1.0"
-    id("com.gradleup.shadow") version "8.3.5"
+    kotlin("jvm") version "2.1.20"
+    id("com.gradleup.shadow") version "8.3.6"
 }
 
 group = "one.oktw"
@@ -19,9 +19,9 @@ repositories {
 dependencies {
     api(kotlin("stdlib-jdk8"))
     api(kotlin("reflect"))
-    api(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0"))
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    api("org.mongodb:bson:5.2.1")
+    api(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.1"))
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+    api("org.mongodb:bson:5.4.0")
 }
 
 java {
