@@ -21,7 +21,7 @@ dependencies {
     api(kotlin("reflect"))
     api(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"))
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-    api("org.mongodb:bson:5.6.2")
+    api("org.mongodb:bson:5.7.0")
 }
 
 java {
